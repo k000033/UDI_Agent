@@ -1,0 +1,6 @@
+14:57:03^8^INSERT 陳述式與 FOREIGN KEY 條件約束 "FK_UDI_GET_UDI_STATE" 衝突。衝突發生在資料庫 "UDI"，資料表 "dbo.UDI_STATE", column 'GUID'。
+陳述式已經結束。
+15:23:00^8^INSERT 陳述式與 FOREIGN KEY 條件約束 "FK_UDI_GET_UDI_STATE" 衝突。衝突發生在資料庫 "UDI"，資料表 "dbo.UDI_STATE", column 'GUID'。
+陳述式已經結束。
+15:23:47^8^INSERT 陳述式與 FOREIGN KEY 條件約束 "FK_UDI_GET_UDI_STATE" 衝突。衝突發生在資料庫 "UDI"，資料表 "dbo.UDI_STATE", column 'GUID'。
+陳述式已經結束。

@@ -1,0 +1,13 @@
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\bin\Release\net8.0\Agent_ClassLibrary.dll.config
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\bin\Release\net8.0\Agent_ClassLibrary.deps.json
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\bin\Release\net8.0\Agent_ClassLibrary.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\bin\Release\net8.0\Agent_ClassLibrary.pdb
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.csproj.AssemblyReference.cache
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.AssemblyInfoInputs.cache
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.AssemblyInfo.cs
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.csproj.CoreCompileInputs.cache
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\refint\Agent_ClassLibrary.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.pdb
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\ref\Agent_ClassLibrary.dll

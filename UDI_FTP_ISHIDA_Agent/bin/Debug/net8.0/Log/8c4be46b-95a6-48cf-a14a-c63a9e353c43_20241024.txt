@@ -1,0 +1,20 @@
+16:16:47 步驟 : 9 GUID : f73adb38-7766-4244-bdc1-54acdf2f38bc 訊息 : args[0] = 172.20.8.235 ， args[1] = f73adb38-7766-4244-bdc1-54acdf2f38bc ， args[2] = 9 ， args[3] = 242960102，args[4] = 8c4be46b-95a6-48cf-a14a-c63a9e353c43
+16:16:48^9^在 sys.servers 中找不到伺服器 '172.20.20.12'。請確認所指定的伺服器名稱是否正確。如果需要，請執行預存程序 sp_addlinkedserver，將伺服器加入 sys.servers。
+違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (f73adb38-7766-4244-bdc1-54acdf2f38bc)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (f73adb38-7766-4244-bdc1-54acdf2f38bc, 0)。
+陳述式已經結束。
+陳述式已經結束。
+16:16:48 步驟 : 9 GUID : f73adb38-7766-4244-bdc1-54acdf2f38bc 訊息 : Cannot find table 0.
+16:17:19 步驟 : 9 GUID : f73adb38-7766-4244-bdc1-54acdf2f38bc 訊息 : args[0] = 172.20.8.235 ， args[1] = f73adb38-7766-4244-bdc1-54acdf2f38bc ， args[2] = 9 ， args[3] = 242960102，args[4] = 8c4be46b-95a6-48cf-a14a-c63a9e353c43
+16:17:20^9^在 sys.servers 中找不到伺服器 '172.20.20.12'。請確認所指定的伺服器名稱是否正確。如果需要，請執行預存程序 sp_addlinkedserver，將伺服器加入 sys.servers。
+違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (f73adb38-7766-4244-bdc1-54acdf2f38bc)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (f73adb38-7766-4244-bdc1-54acdf2f38bc, 0)。
+陳述式已經結束。
+陳述式已經結束。
+16:17:33 步驟 : 9 GUID : f73adb38-7766-4244-bdc1-54acdf2f38bc 訊息 : Cannot find table 0.
+16:17:55 步驟 : 9 GUID : f73adb38-7766-4244-bdc1-54acdf2f38bc 訊息 : args[0] = 172.20.8.235 ， args[1] = f73adb38-7766-4244-bdc1-54acdf2f38bc ， args[2] = 9 ， args[3] = 242960102，args[4] = 8c4be46b-95a6-48cf-a14a-c63a9e353c43
+16:18:00^9^在 sys.servers 中找不到伺服器 '172.20.20.12'。請確認所指定的伺服器名稱是否正確。如果需要，請執行預存程序 sp_addlinkedserver，將伺服器加入 sys.servers。
+違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (f73adb38-7766-4244-bdc1-54acdf2f38bc)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (f73adb38-7766-4244-bdc1-54acdf2f38bc, 0)。
+陳述式已經結束。
+陳述式已經結束。

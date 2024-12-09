@@ -1,0 +1,75 @@
+12:45:00 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : args[0] = 172.20.22.100 ， args[1] = a67fe36f-95e0-4aa7-a283-b985f2228e2b ， args[2] = 3 ， args[3] = 243180102，args[4] = b3d23906-4af9-4872-9367-4223b9e919d0
+12:45:01^3^違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (a67fe36f-95e0-4aa7-a283-b985f2228e2b)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (a67fe36f-95e0-4aa7-a283-b985f2228e2b, 1)。
+陳述式已經結束。
+陳述式已經結束。
+12:45:01 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : Cannot find table 0.
+12:45:43 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : args[0] = 172.20.22.100 ， args[1] = a67fe36f-95e0-4aa7-a283-b985f2228e2b ， args[2] = 3 ， args[3] = 243180102，args[4] = b3d23906-4af9-4872-9367-4223b9e919d0
+12:45:43 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  PC<->172.20.22.100
+12:45:43 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT刪除完成
+12:45:44 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0124.TXT.tmp
+12:45:44 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0124.TXT.tmp 共花費:0 秒
+12:45:44 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT下傳成功
+12:46:10 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0201.TXT.tmp
+12:46:10 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0201.TXT.tmp 共花費:0 秒
+12:46:12 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 LCU0301.TXT
+12:46:12 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 LCU0301.TXT 共花費:0 秒
+12:46:12 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 下載成功
+12:46:12 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 0筆  上傳DB成功 
+12:47:10 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : args[0] = 172.20.22.100 ， args[1] = a67fe36f-95e0-4aa7-a283-b985f2228e2b ， args[2] = 3 ， args[3] = 243180102，args[4] = b3d23906-4af9-4872-9367-4223b9e919d0
+12:47:10 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  PC<->172.20.22.100
+12:47:11 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT刪除完成
+12:47:11 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0124.TXT.tmp
+12:47:11 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0124.TXT.tmp 共花費:0 秒
+12:47:11 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT下傳成功
+12:47:12 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0201.TXT.tmp
+12:47:12 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0201.TXT.tmp 共花費:0 秒
+12:47:13 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  等待產生 LCU0301.TXT，1 ...
+12:47:14 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  等待產生 LCU0301.TXT，2 ...
+12:47:14 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 LCU0301.TXT
+12:47:14 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 LCU0301.TXT 共花費:2 秒
+12:48:01 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 下載成功
+12:48:01 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 0筆  上傳DB成功 
+12:48:37 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : The remote server returned an error: (550) File unavailable (e.g., file not found, no access).
+12:49:03 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : args[0] = 172.20.22.100 ， args[1] = a67fe36f-95e0-4aa7-a283-b985f2228e2b ， args[2] = 3 ， args[3] = 243180102，args[4] = b3d23906-4af9-4872-9367-4223b9e919d0
+12:49:03 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  PC<->172.20.22.100
+12:49:04 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT刪除完成
+12:49:04 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0124.TXT.tmp
+12:49:04 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0124.TXT.tmp 共花費:0 秒
+12:49:04 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT下傳成功
+12:49:04 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0201.TXT.tmp
+12:49:04 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0201.TXT.tmp 共花費:0 秒
+12:49:06 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  等待產生 LCU0301.TXT，1 ...
+12:49:07 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  等待產生 LCU0301.TXT，2 ...
+12:49:07 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 LCU0301.TXT
+12:49:07 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 LCU0301.TXT 共花費:2 秒
+12:49:54 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 下載成功
+12:49:54 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 0筆  上傳DB成功 
+12:50:38 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : args[0] = 172.20.22.100 ， args[1] = a67fe36f-95e0-4aa7-a283-b985f2228e2b ， args[2] = 3 ， args[3] = 243180102，args[4] = b3d23906-4af9-4872-9367-4223b9e919d0
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  PC<->172.20.22.100
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT刪除完成
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0124.TXT.tmp
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0124.TXT.tmp 共花費:0 秒
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT下傳成功
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0201.TXT.tmp
+12:50:39 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0201.TXT.tmp 共花費:0 秒
+12:50:40 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  等待產生 LCU0301.TXT，1 ...
+12:50:40 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 LCU0301.TXT
+12:50:40 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 LCU0301.TXT 共花費:1 秒
+12:50:40 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 下載成功
+12:50:40 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 0筆  上傳DB成功 
+12:50:43 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : The remote server returned an error: (550) File unavailable (e.g., file not found, no access).
+12:51:26 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : args[0] = 172.20.22.100 ， args[1] = a67fe36f-95e0-4aa7-a283-b985f2228e2b ， args[2] = 3 ， args[3] = 243180102，args[4] = b3d23906-4af9-4872-9367-4223b9e919d0
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  PC<->172.20.22.100
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT刪除完成
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0124.TXT.tmp
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0124.TXT.tmp 共花費:0 秒
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  HST0124.TXT下傳成功
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 HST0201.TXT.tmp
+12:51:27 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 HST0201.TXT.tmp 共花費:0 秒
+12:51:28 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  等待產生 LCU0301.TXT，1 ...
+12:51:28 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 : 下傳 LCU0301.TXT
+12:51:28 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  下傳 LCU0301.TXT 共花費:1 秒
+12:51:30 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 下載成功
+12:51:30 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT 0筆  上傳DB成功 
+12:51:30 步驟 : 3 GUID : a67fe36f-95e0-4aa7-a283-b985f2228e2b 訊息 :  LCU0301.TXT刪除完成

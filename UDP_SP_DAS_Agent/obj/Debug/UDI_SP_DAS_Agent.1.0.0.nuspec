@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>UDI_SP_DAS_Agent</id>
+    <version>1.0.0</version>
+    <authors>UDI_SP_DAS_Agent</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Agent_ClassLibrary" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Configuration.ConfigurationManager" version="8.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\bin\Debug\net8.0\UDI_SP_DAS_Agent.runtimeconfig.json" target="lib\net8.0\UDI_SP_DAS_Agent.runtimeconfig.json" />
+    <file src="D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\bin\Debug\net8.0\UDI_SP_DAS_Agent.dll" target="lib\net8.0\UDI_SP_DAS_Agent.dll" />
+  </files>
+</package>

@@ -1,0 +1,42 @@
+12:34:21 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : args[0] = 172.20.20.11 ， args[1] = f10174ae-a493-4c6f-b941-ccb4fc91351b ， args[2] = 8 ， args[3] = 242960102，args[4] = 106ae68f-2247-47ff-8c60-8d87808eaaf2
+12:34:21 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 六小時前的文件已刪除，刪除成功
+12:34:21 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  PC<->172.20.20.11
+12:34:41 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : args[0] = 172.20.20.11 ， args[1] = f10174ae-a493-4c6f-b941-ccb4fc91351b ， args[2] = 8 ， args[3] = 242960102，args[4] = 106ae68f-2247-47ff-8c60-8d87808eaaf2
+12:34:42 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 六小時前的文件已刪除，刪除成功
+12:34:42 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  PC<->172.20.20.11
+12:35:09 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : args[0] = 172.20.20.11 ， args[1] = f10174ae-a493-4c6f-b941-ccb4fc91351b ， args[2] = 8 ， args[3] = 242960102，args[4] = 106ae68f-2247-47ff-8c60-8d87808eaaf2
+12:35:09 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 六小時前的文件已刪除，刪除成功
+12:35:09 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  PC<->172.20.20.11
+14:57:01 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : args[0] = 172.20.8.235 ， args[1] = f10174ae-a493-4c6f-b941-ccb4fc91351b ， args[2] = 8 ， args[3] = 242960102，args[4] = 106ae68f-2247-47ff-8c60-8d87808eaaf2
+14:57:01 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 六小時前的文件已刪除，刪除成功
+14:57:01 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  PC<->172.20.8.235
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_刪除完成
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_刪除完成
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 下傳 ISHIDA_.tmp
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  下傳 ISHIDA_.tmp 共花費:0 秒
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_ 上傳成功
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 下傳 ISHIDA_
+14:57:02 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  下傳 ISHIDA_ 共花費:0 秒
+14:57:03 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_ 下載成功
+15:22:58 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : args[0] = 172.20.8.235 ， args[1] = f10174ae-a493-4c6f-b941-ccb4fc91351b ， args[2] = 8 ， args[3] = 242960102，args[4] = 106ae68f-2247-47ff-8c60-8d87808eaaf2
+15:22:58 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 六小時前的文件已刪除，刪除成功
+15:22:58 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  PC<->172.20.8.235
+15:22:59 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_刪除完成
+15:22:59 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_刪除完成
+15:23:00 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 下傳 ISHIDA_.tmp
+15:23:00 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  下傳 ISHIDA_.tmp 共花費:0 秒
+15:23:00 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_ 上傳成功
+15:23:00 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 下傳 ISHIDA_
+15:23:00 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  下傳 ISHIDA_ 共花費:0 秒
+15:23:00 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_ 下載成功
+15:23:17 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : args[0] = 172.20.8.235 ， args[1] = f10174ae-a493-4c6f-b941-ccb4fc91351b ， args[2] = 8 ， args[3] = 242960102，args[4] = 106ae68f-2247-47ff-8c60-8d87808eaaf2
+15:23:17 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 六小時前的文件已刪除，刪除成功
+15:23:32 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  PC<->172.20.8.235
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_刪除完成
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_刪除完成
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 下傳 ISHIDA_.tmp
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  下傳 ISHIDA_.tmp 共花費:0 秒
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_ 上傳成功
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 : 下傳 ISHIDA_
+15:23:33 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  下傳 ISHIDA_ 共花費:0 秒
+15:23:47 步驟 : 8 GUID : f10174ae-a493-4c6f-b941-ccb4fc91351b 訊息 :  ISHIDA_ 下載成功

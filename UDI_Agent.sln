@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDI_FTP_ISHIDA_Agent", "UDI_FTP_ISHIDA_Agent\UDI_FTP_ISHIDA_Agent.csproj", "{37A83079-D86C-4A92-86F9-A53289D1FB2D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agent_ClassLibrary", "Agent_ClassLibrary\Agent_ClassLibrary.csproj", "{E47C28B3-0165-4159-AA04-3A78201BC962}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDI_FTP_TERAKO_Agent", "UDI_FTP_TERAKO_Agent\UDI_FTP_TERAKO_Agent.csproj", "{C7EAD903-69FF-47F9-91A2-0E9A25DF526A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDI_SP_DAS_Agent", "UDP_SP_DAS_Agent\UDI_SP_DAS_Agent.csproj", "{73802D33-2AFC-435C-9920-FF2B8C7DB7F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDI_SP_WAS_Agent", "UDI_SP_WAS_Agent\UDI_SP_WAS_Agent.csproj", "{287D27A3-1299-4F7D-9CFF-0B21C7971848}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37A83079-D86C-4A92-86F9-A53289D1FB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A83079-D86C-4A92-86F9-A53289D1FB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A83079-D86C-4A92-86F9-A53289D1FB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A83079-D86C-4A92-86F9-A53289D1FB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E47C28B3-0165-4159-AA04-3A78201BC962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47C28B3-0165-4159-AA04-3A78201BC962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47C28B3-0165-4159-AA04-3A78201BC962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47C28B3-0165-4159-AA04-3A78201BC962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7EAD903-69FF-47F9-91A2-0E9A25DF526A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7EAD903-69FF-47F9-91A2-0E9A25DF526A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7EAD903-69FF-47F9-91A2-0E9A25DF526A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7EAD903-69FF-47F9-91A2-0E9A25DF526A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73802D33-2AFC-435C-9920-FF2B8C7DB7F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73802D33-2AFC-435C-9920-FF2B8C7DB7F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73802D33-2AFC-435C-9920-FF2B8C7DB7F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73802D33-2AFC-435C-9920-FF2B8C7DB7F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{287D27A3-1299-4F7D-9CFF-0B21C7971848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{287D27A3-1299-4F7D-9CFF-0B21C7971848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{287D27A3-1299-4F7D-9CFF-0B21C7971848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{287D27A3-1299-4F7D-9CFF-0B21C7971848}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A09E49C-266E-4071-B247-100BA799DA5E}
+	EndGlobalSection
+EndGlobal
