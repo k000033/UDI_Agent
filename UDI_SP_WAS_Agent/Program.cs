@@ -126,23 +126,25 @@ namespace UDI_SP_WAS_Agent
                 AppExceptionHandle.AppExceptionHandle();
                 #endregion
 
-                #region 清除過去的Log
-                await global.Agent_LocalClean();
-                #endregion
+
+                //#region 清除過去的Log
+                //await global.Agent_LocalClean();
+                //#endregion
 
                 /***
                 設備啟動程序
                 ***/
-                #region 設備啟動程序
-                if (global.HandleType(global.Parameter_OrderType) == "Initial")
-                {
-                    global.Parameter_Step = global.Parameter_OrderType;
-                    string instructions = global.HandleName(global.Parameter_OrderType);
-                    global.Agent_WriteLog(instructions);
-                    await global.Execute();
-                    await global.UpdateState();
-                }
-                #endregion
+
+                //#region 設備啟動程序
+                //if (global.HandleType(global.Parameter_OrderType) == "Initial")
+                //{
+                //    global.Parameter_Step = global.Parameter_OrderType;
+                //    string instructions = global.HandleName(global.Parameter_OrderType);
+                //    global.Agent_WriteLog(instructions);
+                //    await global.Execute();
+                //    await global.UpdateState();
+                //}
+                //#endregion
 
 
                 try

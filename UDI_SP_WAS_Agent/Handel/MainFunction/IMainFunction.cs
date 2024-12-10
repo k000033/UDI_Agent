@@ -8,6 +8,6 @@ namespace UDI_SP_WAS_Agent.Handel.MainFunction
 {
     internal interface IMainFunction
     {
-        public Task<string> MainFunction(string type);
+        public Task<string> MainFun(string type);
     }
 }
