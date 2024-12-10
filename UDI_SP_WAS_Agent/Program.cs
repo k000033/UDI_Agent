@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using UDI_SP_WAS_Agent.Handel.DeleToWAS;
+using UDI_SP_WAS_Agent.Handel.MainFunction;
 using UDI_SP_WAS_Agent.Handel.RcvFromWAS;
 using UDI_SP_WAS_Agent.Handel.SendToWAS;
 
@@ -31,17 +32,20 @@ namespace UDI_SP_WAS_Agent
                 services.AddScoped<IDBConn, DBConn>();
                 services.AddScoped<IAppExceptionHandle, AppExceptionHandle>();
                 services.AddScoped<IGlobalUtility, GlobalUtility>();
-                services.AddScoped<IDeleToWAS, DeleToWAS>();
-                services.AddScoped<IRcvFromWAS, RcvFromWAS>();
-                services.AddScoped<ISendToWAS, SendToWAS>();
+                //services.AddScoped<IDeleToWAS, DeleToWAS>();
+                //services.AddScoped<IRcvFromWAS, RcvFromWAS>();
+                //services.AddScoped<ISendToWAS, SendToWAS>();
+                services.AddScoped<IMainFunction, MainFunction>();
             });
 
             var host = builder.Build();
             var global = host.Services.GetRequiredService<IGlobalUtility>();
             var AppExceptionHandle = host.Services.GetRequiredService<IAppExceptionHandle>();
-            var DeleToWas = host.Services.GetRequiredService<IDeleToWAS>();
-            var RcvHandel = host.Services.GetRequiredService<IRcvFromWAS>();
-            var SendToWas = host.Services.GetRequiredService<ISendToWAS>();
+            //var DeleToWas = host.Services.GetRequiredService<IDeleToWAS>();
+            //var RcvHandel = host.Services.GetRequiredService<IRcvFromWAS>();
+            //var SendToWas = host.Services.GetRequiredService<ISendToWAS>();
+            var mainFunction = host.Services.GetRequiredService<IMainFunction>();
+
             // 測試參數
             //string[] test = new string[5];
             //test[0] = "123";
@@ -141,99 +145,80 @@ namespace UDI_SP_WAS_Agent
                 #endregion
 
 
-
-
-
-                /***
-                 清除實績、清除實績、清除主檔
-                ***/
-                //string[] DeleHandelList = ["1", "2"];
-                if (global.HandleType(global.Parameter_OrderType) == "Dele")
+                try
                 {
-                    try
-                    {
-                        global.Parameter_Step = global.Parameter_OrderType;
-                        string instructions = global.HandleName(global.Parameter_OrderType);
-                        //string instructions = global.Parameter_OrderType switch
-                        //{
-                        //    "1" => "執行 清除實績",
-                        //    "2" => "執行 清除指示",
-                        //    _ => ""
-                        //};
-                        global.Agent_WriteLog(instructions);
-                        var result = await DeleToWas.MainFunction(global.Parameter_OrderType);
-                        global.Agent_WriteLog($"回傳訊息 : {result}");
-                    }
-                    catch (Exception ex)
-                    {
-                        global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
-                    }
+                    global.Parameter_Step = global.Parameter_OrderType;
+                    string instructions = global.HandleName(global.Parameter_OrderType);
+                    global.Agent_WriteLog(instructions);
+                    var result = await mainFunction.MainFun(global.Parameter_OrderType);
+                    global.Agent_WriteLog($"回傳訊息 : {result}");
+                }
+                catch (Exception ex)
+                {
+                    global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
                 }
 
-                /***
-                回收實績
-                ***/
-                #region 回收實績
-                //string[] RcvHandelList = ["3", "4"];
-                if (global.HandleType(global.Parameter_OrderType) == "Rcv")
-                {
-                    try
-                    {
-                        global.Parameter_Step = global.Parameter_OrderType;
-                        string instructions = global.HandleName(global.Parameter_OrderType);
-                        //string instructions = global.Parameter_OrderType switch
-                        //{
-                        //    "3" => "執行 取得實績",
-                        //    "4" => "執行 取得實績(完整)",
-                        //};
 
-                        global.Agent_WriteLog(instructions);
+                ///***
+                // 清除實績、清除實績、清除主檔
+                //***/
+                ////string[] DeleHandelList = ["1", "2"];
+                //if (global.HandleType(global.Parameter_OrderType) == "Dele")
+                //{
+                //    try
+                //    {
+                //        global.Parameter_Step = global.Parameter_OrderType;
+                //        string instructions = global.HandleName(global.Parameter_OrderType);
+                //        global.Agent_WriteLog(instructions);
+                //        var result = await DeleToWas.MainFunction(global.Parameter_OrderType);
+                //        global.Agent_WriteLog($"回傳訊息 : {result}");
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
+                //    }
+                //}
 
-                        var result = await RcvHandel.MainFunction(global.Parameter_OrderType);
-                        global.Agent_WriteLog(result);
-                    }
-                    catch (Exception ex)
-                    {
-                        global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
-                    }
-                }
-                #endregion
+                ///***
+                //回收實績
+                //***/
+                //#region 回收實績
+                ////string[] RcvHandelList = ["3", "4"];
+                //if (global.HandleType(global.Parameter_OrderType) == "Rcv")
+                //{
+                //    try
+                //    {
+                //        global.Parameter_Step = global.Parameter_OrderType;
+                //        string instructions = global.HandleName(global.Parameter_OrderType);
+                //        global.Agent_WriteLog(instructions);
+                //        var result = await RcvHandel.MainFunction(global.Parameter_OrderType);
+                //        global.Agent_WriteLog(result);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
+                //    }
+                //}
+                //#endregion
 
-                #region 下生產指示，主檔 (生產指示、門市、商品、產地，原材料，註譯........)
-                //string[] SendHandelList = ["5", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"];
-                if (global.HandleType(global.Parameter_OrderType) == "Send")
-                {
-                    try
-                    {
-                        global.Parameter_Step = global.Parameter_OrderType;
-                        string instructions = global.HandleName(global.Parameter_OrderType);
-                        //string instructions = global.Parameter_OrderType switch
-                        //{
-                        //    "5" => "執行 生產指示",
-                        //    "8" => "執行 商品主檔",
-                        //    "9" => "執行 門市主檔",
-                        //    "10" => "執行 產地主檔",
-                        //    "11" => "執行 原材料主檔",
-                        //    "12" => "執行 註譯主檔",
-                        //    "13" => "執行 保存方法主檔",
-                        //    "14" => "執行 作業者主檔",
-                        //    "15" => "執行 托盤主檔",
-                        //    "16" => "執行 添加物主檔",
-                        //    "17" => "執行 廣告文主檔",
-                        //    "18" => "執行 班次主檔",
-                        //    _ => "" // 默认情况，返回 null 或其他适当的值
-                        //};
-
-                        global.Agent_WriteLog(instructions);
-                        var result = await SendToWas.MainFunction(global.Parameter_OrderType);
-                        global.Agent_WriteLog($"回傳訊息 : {result}");
-                    }
-                    catch (Exception ex)
-                    {
-                        global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
-                    }
-                }
-                #endregion
+                //#region 下生產指示，主檔 (生產指示、門市、商品、產地，原材料，註譯........)
+                ////string[] SendHandelList = ["5", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"];
+                //if (global.HandleType(global.Parameter_OrderType) == "Send")
+                //{
+                //    try
+                //    {
+                //        global.Parameter_Step = global.Parameter_OrderType;
+                //        string instructions = global.HandleName(global.Parameter_OrderType);
+                //        global.Agent_WriteLog(instructions);
+                //        var result = await SendToWas.MainFunction(global.Parameter_OrderType);
+                //        global.Agent_WriteLog($"回傳訊息 : {result}");
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
+                //    }
+                //}
+                //#endregion
             }
         }
     }

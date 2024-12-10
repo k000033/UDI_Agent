@@ -176,9 +176,9 @@ namespace UDI_FTP_ISHIDA_Agent
                 AppExceptionHandle.AppExceptionHandle();
                 #endregion
 
-                #region 清除過去的Log
-                await globalUtility.Agent_LocalClean();
-                #endregion
+                //#region 清除過去的Log
+                //await globalUtility.Agent_LocalClean();
+                //#endregion
 
                 /***
                 FTP 連線
@@ -203,6 +203,7 @@ namespace UDI_FTP_ISHIDA_Agent
                     return;
                 };
 
+                // 沒有 PutFileName，代表只是執行命令，不產文件
                 if (ftpFileHandel.PutFileName == "")
                 {
                     globalUtility.Agent_WriteLog("執行命令");
@@ -233,8 +234,8 @@ namespace UDI_FTP_ISHIDA_Agent
                 try
                 {
                     /***
-                            取得 文字檔資料，並產生文件給設備，並判斷 PostGet 如果非空字串，將設備回傳的文件資料寫入 GET 資料表
-                            ***/
+                    取得 文字檔資料，並產生文件給設備，並判斷 PostGet 如果非空字串，將設備回傳的文件資料寫入 GET 資料表
+                    ***/
                     #region 取得 文字檔資料，並產生文件給設備
                     DataSet dsPutTxt = await ftpFileHandel.GetFtpPutTxt(hashtable);
                     if (dsPutTxt.Tables.Count > 0)
@@ -242,7 +243,7 @@ namespace UDI_FTP_ISHIDA_Agent
                         if (dsPutTxt.Tables[0].Rows.Count > 0)
                         {
 
-                            // 輸出指定編號的 TxT
+                            // 輸出文字檔
                             using (StreamWriter sw_OutPutTXT = new StreamWriter(PutFilePath, false, System.Text.Encoding.UTF8))
                             {
                                 string data = "";
@@ -378,7 +379,7 @@ namespace UDI_FTP_ISHIDA_Agent
                 }
             }
 
-
+            // 關閉事件
             async void OnProcessExit(object sender, EventArgs e)
             {
                 if (ProgramTermination == true)
