@@ -83,3 +83,4 @@ D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\obj\Release\ne
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\obj\Release\net8.0\UDI_SP_DAS_Agent.pdb
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\obj\Release\net8.0\UDI_SP_DAS_Agent.genruntimeconfig.cache
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\obj\Release\net8.0\ref\UDI_SP_DAS_Agent.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDP_SP_DAS_Agent\obj\Release\net8.0\UDI_SP_DAS_Agent.sourcelink.json

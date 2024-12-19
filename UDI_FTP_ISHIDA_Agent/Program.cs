@@ -49,13 +49,13 @@ namespace UDI_FTP_ISHIDA_Agent
             DisableQuickEditMode();
 
             //測試參數
-            //string[] test = new string[5];
-            //test[0] = "172.20.8.233";
-            //test[1] = "41e7ab35-2a13-49ea-916c-941edccbeea1";
-            //test[2] = "4";
-            //test[3] = "243280199";
-            //test[4] = "243280101，args[4] = a0a56f54-7acc-42cb-b47e-2a43f8aac0ea";
-            //args = test;
+            string[] test = new string[5];
+            test[0] = "172.20.8.233";
+            test[1] = "101EF554-7075-4BAA-A8CA-6A729514FA89";
+            test[2] = "4";
+            test[3] = "243460101";
+            test[4] = "243280101，args[4] = a0a56f54-7acc-42cb-b47e-2a43f8aac0ea";
+            args = test;
 
 
             /**
