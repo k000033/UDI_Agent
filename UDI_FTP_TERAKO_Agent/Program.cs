@@ -205,6 +205,7 @@ namespace UDI_FTP_TERAKO_Agent
                     return;
                 };
 
+                // 沒有 PutFileName，代表只是執行命令，不產文件
                 if (ftpFileHandel.PutFileName == "")
                 {
                     globalUtility.Agent_WriteLog("執行命令");
@@ -233,8 +234,8 @@ namespace UDI_FTP_TERAKO_Agent
                 try
                 {
                     /***
-                              取得 文字檔資料，並產生文件給設備，並判斷 PostGet 如果非空字串，將設備回傳的文件資料寫入 GET 資料表
-                            ***/
+                    取得 文字檔資料，並產生文件給設備，並判斷 PostGet 如果非空字串，將設備回傳的文件資料寫入 GET 資料表
+                    ***/
                     DataSet dsPutTxt = await ftpFileHandel.GetFtpPutTxt(hashtable);
                     if (dsPutTxt.Tables.Count > 0)
                     {
@@ -384,6 +385,7 @@ namespace UDI_FTP_TERAKO_Agent
                 }
             }
 
+            // 執行結束的事件
             void OnProcessExit(object sender, EventArgs e)
             {
                 if (ProgramTermination == true)
