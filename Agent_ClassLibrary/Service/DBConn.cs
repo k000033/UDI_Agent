@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Agent_ClassLibrary.Gloab;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Agent_ClassLibrary.Service
 {
@@ -115,7 +117,7 @@ namespace Agent_ClassLibrary.Service
                 catch (Exception ex)
                 {
                     result = false;
-                    //_commonQueryLCU.Agent_WriteLog(ex.Message);
+                    //_commonQueryLCU.LogToFile(ex.Message);
                     WriteLog(ex.Message.ToString(), guid, type);
                     throw ex;
                 }
@@ -162,11 +164,75 @@ namespace Agent_ClassLibrary.Service
             catch (Exception ex)
             {
                 WriteLog(ex.Message.ToString(), guid, type);
+                throw;
             }
 
             return dataSet;
-
         }
+
+        public async Task<DataSet> asyncSqlSp(string strDB, string SpName, Hashtable Prm, string guid, string type)
+        {
+            DataSet dataSet = new DataSet();
+            string connectionString = ConfigurationManager.ConnectionStrings[strDB].ConnectionString;
+
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                using (SqlCommand sqlCommand = new SqlCommand(SpName, sqlConnection))
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
+                {
+                    ArrayList arrKey = new ArrayList();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandTimeout = 3600;
+                    foreach (DictionaryEntry entry in Prm)
+                    {
+                        string strKey = entry.Key.ToString();
+                        sqlCommand.Parameters.Add(strKey, SqlDbType.VarChar);
+                        sqlCommand.Parameters[strKey].Value = entry.Value;
+                    }
+                   await  sqlCommand.Connection.OpenAsync();
+                    SqlDataAdapter dapter = new SqlDataAdapter(sqlCommand);
+                    //dapter.Fill(dataSet);
+                    await Task.Run(() => dapter.Fill(dataSet));
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.Message.ToString(), guid, type);
+            }
+
+            return dataSet;
+        }
+
+        public async Task<bool> InsertWithSqlBulkCopy(string strDB, string TableName, DataTable dataTable, string guid, string type)
+        {
+            bool result = false;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings[strDB].ConnectionString;
+
+                await using SqlConnection sqlConnection = new SqlConnection(connectionString);
+                await sqlConnection.OpenAsync();
+
+                using SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(sqlConnection)
+                {
+                    DestinationTableName = TableName,
+                };
+
+                await sqlBulkCopy.WriteToServerAsync(dataTable);
+                result= true;
+            }
+            catch (Exception ex)
+            {
+
+                result = false;
+                //_commonQueryLCU.LogToFile(ex.Message);
+                WriteLog(ex.Message.ToString(), guid, type);
+                throw ex;
+            }
+            return result;
+        }
+
 
         /// <summary>
         /// 寫Log，並建立筆記本Log
@@ -175,12 +241,14 @@ namespace Agent_ClassLibrary.Service
         #region 寫Log，並建立筆記本Log
         public void WriteLog(string msg, string guid, string type)
         {
-            msg = DateTime.Now.ToString("HH:mm:ss")
-                   + "^" + type
-                   + "^" + msg;
+            //msg = DateTime.Now.ToString("HH:mm:ss")
+            //       + "^" + type
+            //       + "^" + msg;
+
+            string txtMsg = $"{DateTime.Now.ToString("HH:mm:ss")} 步驟 : {type} GUID : {guid} 訊息 : {msg}";
 
             //PrintLog
-            Console.WriteLine(msg);
+            Console.WriteLine(txtMsg);
 
             string FilePath = AppDomain.CurrentDomain.BaseDirectory + @"Log\" + guid + "_" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
             Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"Log");
@@ -196,7 +264,7 @@ namespace Agent_ClassLibrary.Service
             {
                 using (StreamWriter sw = new StreamWriter(fs, Encoding.Default, 4096))
                 {
-                    sw.WriteLine(msg);
+                    sw.WriteLine(txtMsg);
                     sw.Close();
                 }
             }

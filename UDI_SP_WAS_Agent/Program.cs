@@ -43,10 +43,10 @@ namespace UDI_SP_WAS_Agent
             #region 測試參數
             //string[] test = new string[5];
             //test[0] = "123";
-            //test[1] = "400b079f-1b20-4150-847f-53778f11a5a3";
-            //test[2] = "5";
-            //test[3] = "242550101";
-            //test[4] = "07eee55a-d3d2-473c-8d32-d1f8bc0b5b2c";
+            //test[1] = "64007686-080C-46F2-B2D4-C22DE7F1BC53";
+            //test[2] = "2";
+            //test[3] = "250070101";
+            //test[4] = "0BAA9D32-F5FD-4C16-B482-EE4647359A84";
             //args = test;
             //args[0] = 123 ， args[1] = 400b079f-1b20-4150-847f-53778f11a5a3 ， args[2] = 5 ， args[3] = 242550101，args[4] = 07eee55a-d3d2-473c-8d32-d1f8bc0b5b2c
             #endregion
@@ -66,7 +66,7 @@ namespace UDI_SP_WAS_Agent
             if (args.Length != 5)
             {
 
-                global.Agent_WriteLog(appGuid + " 參數不正確  :" + paras);
+                global.LogToFile(appGuid + " 參數不正確  :" + paras);
                 return;
             }
             #endregion
@@ -84,7 +84,7 @@ namespace UDI_SP_WAS_Agent
             {
                 if (!m.WaitOne(0, true))
                 {
-                    global.Agent_WriteLog(appGuid + " 同區域同裝置, 不用重複執行.");
+                    global.LogToFile(appGuid + " 同區域同裝置, 不用重複執行.");
                     return;
                 }
 
@@ -101,7 +101,7 @@ namespace UDI_SP_WAS_Agent
                 #endregion
 
                 global.Parameter_Step = global.Parameter_OrderType;
-                global.Agent_WriteLog($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
+                global.LogToFile($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
 
 
                 /***
@@ -119,13 +119,13 @@ namespace UDI_SP_WAS_Agent
                 {
                     global.Parameter_Step = global.Parameter_OrderType;
                     string instructions = global.HandleName(global.Parameter_OrderType);
-                    global.Agent_WriteLog(instructions);
+                    global.LogToFile(instructions);
                     var result = await mainFunction.MainFun(global.Parameter_OrderType);
-                    global.Agent_WriteLog($"回傳訊息 : {result}");
+                    global.LogToFile($"回傳訊息 : {result}");
                 }
                 catch (Exception ex)
                 {
-                    global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
+                    global.LogToFile($"錯誤訊息 : {ex.Message}");
                 }
 
             }

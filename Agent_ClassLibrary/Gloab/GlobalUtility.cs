@@ -3,6 +3,7 @@ using Agent_ClassLibrary.Service;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -20,6 +21,8 @@ namespace Agent_ClassLibrary.Gloab
         {
             _dBConn = dBConn;
         }
+
+        public GlobalUtility() { }
 
 
         private string _Parameter_Url;
@@ -43,7 +46,7 @@ namespace Agent_ClassLibrary.Gloab
         /// </summary>
         /// <param name="msg"></param>
         #region 寫Log，並建立筆記本Log
-        public void Agent_WriteLog(string msg)
+        public void LogToFile(string msg)
         {
 
             // 時間 藍色
@@ -100,15 +103,26 @@ namespace Agent_ClassLibrary.Gloab
         #region FTP 連線
         public void FTP_Connectoin(ref FtpClient ftpclient)
         {
-            // 連結ftp 
-            ftpclient = new FtpClient(@"ftp://" + Parameter_Url + @":21/", "anonymous", "anonymous");
 
-            //測試連線是否正常
-            string[] files = ftpclient.directoryListSimple(@"/");
+            try
+            {
+                // 連結ftp 
+                ftpclient = new FtpClient(@"ftp://" + Parameter_Url + @":21/", "anonymous", "anonymous");
 
-            Agent_WriteLog(" PC<->" + Parameter_Url);
-            //string FileDirectory = AppDomain.CurrentDomain.BaseDirectory + Parameter_Divice_AREA + @"\" + Parameter_Divice_ID;
-            //Directory.CreateDirectory(FileDirectory);
+                //測試連線是否正常
+                string[] files = ftpclient.directoryListSimple(@"/");
+
+                LogToFile(" PC<->" + Parameter_Url);
+                //string FileDirectory = AppDomain.CurrentDomain.BaseDirectory + Parameter_Divice_AREA + @"\" + Parameter_Divice_ID;
+                //Directory.CreateDirectory(FileDirectory);
+            }
+            catch (Exception ex)
+            {
+                LogToFile($"{Parameter_Url} ftp 連線失敗");
+                LogToDatabase($"{Parameter_Url} ftp 連線失敗");
+                LineNotice($"{Parameter_Url} ftp 連線失敗");
+            }
+
         }
         #endregion
 
@@ -143,7 +157,7 @@ namespace Agent_ClassLibrary.Gloab
                     {
 
 
-                        //Agent_WriteLog($"第一關：檢查檔案存在 {CheckSecond}");
+                        //LogToFile($"第一關：檢查檔案存在 {CheckSecond}");
 
                         files = ftp.directoryListSimple("");
 
@@ -173,8 +187,9 @@ namespace Agent_ClassLibrary.Gloab
 
                         if (CheckSecond >= MaxSeconds)
                         {
-                            Agent_WriteLog($"等待產生 {FileName}，並等待檔案消失超過{MaxSeconds}秒");
-                            Wirete_Error($"等待產生 {FileName}，並等待檔案消失超過{MaxSeconds}秒");
+                            LineNotice($"等待產生 {FileName}，並等待檔案消失超過{MaxSeconds}秒");
+                            LogToFile($"等待產生 {FileName}，並等待檔案消失超過{MaxSeconds}秒");
+                            LogToDatabase($"等待產生 {FileName}，並等待檔案消失超過{MaxSeconds}秒");
                             break;
                         };
 
@@ -186,11 +201,11 @@ namespace Agent_ClassLibrary.Gloab
                         // 嘗試寫入 Log
                         try
                         {
-                            Agent_WriteLog($" 等待產生 {FileName}，{CheckSecond} ...");
+                            LogToFile($" 等待產生 {FileName}，{CheckSecond} ...");
                         }
                         catch (Exception logEx)
                         {
-                            Agent_WriteLog($" 無法寫入日誌: {logEx.Message}");
+                            LogToFile($" 無法寫入日誌: {logEx.Message}");
                         }
                     }
                 }
@@ -227,29 +242,29 @@ namespace Agent_ClassLibrary.Gloab
 
                         if (CheckSecond >= MaxSeconds)
                         {
-                            Agent_WriteLog($"等待{FileName},檔案消失超過 {MaxSeconds}秒");
-                            Wirete_Error($"等待{FileName},檔案消失超過{MaxSeconds}秒");
+                            LogToFile($"等待{FileName},檔案消失超過 {MaxSeconds}秒");
+                            LogToDatabase($"等待{FileName},檔案消失超過{MaxSeconds}秒");
                             break;
                         };
 
 
 
                         Console.CursorLeft = 0;
-                        Agent_WriteLog($" 等待 {FileName} 消失 {CheckSecond} ...");
+                        LogToFile($" 等待 {FileName} 消失 {CheckSecond} ...");
                     }
                     Console.WriteLine("");
                 }
             }
             catch (Exception ex)
             {
-                Wirete_Error(ex.Message);
+                LogToDatabase(ex.Message);
                 return ex.Message;
 
             }
 
 
             #region 檔案下傳時間寫入log
-            Agent_WriteLog($"產生 {FileName}");
+            LogToFile($"產生 {FileName}");
             string strlog = "產生 " + FileName;
 
             if (ExistType == 1)
@@ -259,7 +274,7 @@ namespace Agent_ClassLibrary.Gloab
             }
 
             strlog += " 共花費:" + CheckSecond.ToString() + " 秒";
-            Agent_WriteLog(strlog);
+            LogToFile(strlog);
             #endregion
             return "";
         }
@@ -269,92 +284,68 @@ namespace Agent_ClassLibrary.Gloab
 
         public async Task<DataSet> UpdateState()
         {
-            string strSp = @"[dbo].[spUDI_STATE]";
-            Hashtable ht_Query = new Hashtable();
-            ht_Query.Add("GUID", Parameter_GUID);
-            DataSet dataSet = await Task.Run(() => _dBConn.SqlSp("UDI", strSp, ht_Query, Parameter_TaskId, Parameter_Step));
+            DataSet dataSet = null;
+            try
+            {
+                string strSp = @"[dbo].[spUDI_STATE]";
+                Hashtable ht_Query = new Hashtable();
+                ht_Query.Add("GUID", Parameter_GUID);
+                dataSet = await Task.Run(() => _dBConn.SqlSp("UDI", strSp, ht_Query, Parameter_TaskId, Parameter_Step));
+            
+            }
+            catch (Exception ex)
+            {
+                LogToDatabase(ex.Message);
+            }
+
             return dataSet;
         }
 
         public void UpdateState1()
         {
-            string strSp = @"[dbo].[spUDI_STATE]";
-            Hashtable ht_Query = new Hashtable();
-            ht_Query.Add("GUID", Parameter_GUID);
-           _dBConn.SqlSp("UDI", strSp, ht_Query, Parameter_TaskId, Parameter_Step);
+            try
+            {
+                string strSp = @"[dbo].[spUDI_STATE]";
+                Hashtable ht_Query = new Hashtable();
+                ht_Query.Add("GUID", Parameter_GUID);
+                _dBConn.SqlSp("UDI", strSp, ht_Query, Parameter_TaskId, Parameter_Step);
+            }
+            catch (Exception ex)
+            {
+                LogToDatabase(ex.Message);
+            }
 
+        }
+
+
+        public void  LineNotice(string msg)
+        {
+
+            string site = ConfigurationManager.AppSettings["site"].ToString();          
+            string strSp = @"[dbo].[spSMD_LINE_NOTICE]";
+            Hashtable prm = new Hashtable();
+            prm.Add("NOTICE_SYS_ID", "UDI");
+            prm.Add("NOTICE_SYS_NAME", "UDI");
+            prm.Add("NOTICE_USER", "0092952^0206712^0057267^");
+            prm.Add("NOTICE_SUBJECT", $"{site} 發生錯誤");
+            prm.Add("NOTICE_CONTENT", $"{Parameter_DeviceId} {msg}");
+            prm.Add("NOTICE_GRADE", "1");
+            prm.Add("NOTICE_CREATE_MAN", $"{site}_sys");
+
+            _dBConn.SqlSp("SMD", strSp, prm, Parameter_TaskId, Parameter_Step);
         }
 
         // 清除
         public void Agent_Clean()
         {
-            //string FilePathLog = AppDomain.CurrentDomain.BaseDirectory + "\\log";
-            //string FilePath = AppDomain.CurrentDomain.BaseDirectory + Parameter_Url + Parameter_GUID;
-            //string FileDirectory_SendBackup = FilePath + "\\SendDataBackup";
-            //string FileDirectory_ReturnBackup = FilePath + "\\RcvDataBackup";
 
-
-            ////清除 agent本身的log
-            //string[] directorys = Directory.GetDirectories(FilePath);
-            //foreach (string directory in directorys)
-            //{
-            //    DirectoryInfo directoryInfo = new DirectoryInfo(directory);
-            //    if (directoryInfo.LastWriteTime <= DateTime.Now.AddDays(-1))
-            //    {
-            //        Directory.Delete(directory, true);
-            //    }
-
-            //}
         }
 
 
         // 清除
         public async Task Agent_LocalClean()
         {
-            //const int BatchSize = 100;
-            //string folderPath = AppDomain.CurrentDomain.BaseDirectory + @"Log";
-            //if (Directory.Exists(folderPath))
-            //{
-            //    try
-            //    {
-            //        // 获取文件夹中所有文件
-            //        string[] files = Directory.GetFiles(folderPath);
-            //        DateTime currentDate = DateTime.Now;
 
-            //        // 将文件分成多个批次
-            //        var batches = files.Select((file, index) => new { file, index })
-            //                           .GroupBy(x => x.index / BatchSize)
-            //                           .Select(g => g.Select(x => x.file).ToList());
-
-            //        foreach (var batch in batches)
-            //        {
-            //            await Task.Run(() =>
-            //            {
-            //                foreach (var file in batch)
-            //                {
-            //                    DateTime fileCreationTime = File.GetCreationTime(file);
-            //                    if ((currentDate - fileCreationTime).TotalHours > 6)
-            //                    {
-            //                        File.Delete(file);
-            //                    }
-            //                }
-            //            });
-
-            //            // 等待 100 毫秒，避免文件系统过载
-            //            await Task.Delay(100);
-            //        }
-
-            //        Agent_WriteLog("六小時前的文件已刪除，刪除成功");
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Agent_WriteLog("删除文件時出錯: " + ex.Message);
-            //    }
-            //}
-            //else
-            //{
-            //    Agent_WriteLog("指定的文件夾不存在。");
-            //}
         }
 
         public async Task<DataSet> Execute()
@@ -370,7 +361,7 @@ namespace Agent_ClassLibrary.Gloab
             }
             catch (Exception ex)
             {
-                Wirete_Error(ex.Message);
+                LogToDatabase(ex.Message);
             }
 
 
@@ -398,7 +389,17 @@ namespace Agent_ClassLibrary.Gloab
         }
         #endregion
 
-        public void Wirete_Error(string msg)
+        public async Task<bool> InsertUdiGetWithSqlBulkCopy(DataTable dataTable)
+        {
+
+
+
+             
+            bool result = await _dBConn.InsertWithSqlBulkCopy("UDI", "[ftp].[UDI_GET]", dataTable, Parameter_GUID, Parameter_Step);
+            return result;
+        }
+
+        public void LogToDatabase(string msg)
         {
 
             string strSp = @"[log].[spUDI_ERROR]";

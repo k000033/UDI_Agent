@@ -84,3 +84,4 @@ D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_SP_WAS_Agent\obj\Debug\net8
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_SP_WAS_Agent\obj\Debug\net8.0\UDI_SP_WAS_Agent.genruntimeconfig.cache
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_SP_WAS_Agent\obj\Debug\net8.0\ref\UDI_SP_WAS_Agent.dll
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_SP_WAS_Agent\bin\Debug\net8.0\UDI_SP_WAS_Agent.dll.config
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_SP_WAS_Agent\obj\Debug\net8.0\UDI_SP_WAS_Agent.sourcelink.json

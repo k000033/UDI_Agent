@@ -84,3 +84,4 @@ D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Releas
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Release\net8.0\UDI_FTP_TERAKO_Agent.pdb
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Release\net8.0\UDI_FTP_TERAKO_Agent.genruntimeconfig.cache
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Release\net8.0\ref\UDI_FTP_TERAKO_Agent.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Release\net8.0\UDI_FTP_TERAKO_Agent.sourcelink.json

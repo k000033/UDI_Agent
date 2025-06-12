@@ -1,0 +1,32 @@
+12:05:26 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : args[0] = 172.20.8.233 ， args[1] = 1b7ff453-8b5e-434e-96c4-b7a12d113ead ， args[2] = 1 ， args[3] = 251110101，args[4] = 2350384f-7cf1-438e-ae78-7fbaa6fac787
+12:05:29 步驟 : 1 GUID : 2350384f-7cf1-438e-ae78-7fbaa6fac787 訊息 : 違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead, 1)。
+陳述式已經結束。
+陳述式已經結束。
+12:21:12 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : args[0] = 172.20.8.233 ， args[1] = 1b7ff453-8b5e-434e-96c4-b7a12d113ead ， args[2] = 1 ， args[3] = 251110101，args[4] = 2350384f-7cf1-438e-ae78-7fbaa6fac787
+12:21:13 步驟 : 1 GUID : 2350384f-7cf1-438e-ae78-7fbaa6fac787 訊息 : 違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead, 1)。
+陳述式已經結束。
+陳述式已經結束。
+12:23:07 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : args[0] = 172.20.8.233 ， args[1] = 1b7ff453-8b5e-434e-96c4-b7a12d113ead ， args[2] = 1 ， args[3] = 251110101，args[4] = 2350384f-7cf1-438e-ae78-7fbaa6fac787
+12:23:09 步驟 : 1 GUID : 2350384f-7cf1-438e-ae78-7fbaa6fac787 訊息 : 違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead, 1)。
+陳述式已經結束。
+陳述式已經結束。
+12:24:10 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : args[0] = 172.20.8.233 ， args[1] = 1b7ff453-8b5e-434e-96c4-b7a12d113ead ， args[2] = 1 ， args[3] = 251110101，args[4] = 2350384f-7cf1-438e-ae78-7fbaa6fac787
+12:24:10 步驟 : 1 GUID : 2350384f-7cf1-438e-ae78-7fbaa6fac787 訊息 : 違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead, 1)。
+陳述式已經結束。
+陳述式已經結束。
+12:24:10 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : Execute 的取得 Tables 為 0
+12:26:47 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : args[0] = 172.20.8.233 ， args[1] = 1b7ff453-8b5e-434e-96c4-b7a12d113ead ， args[2] = 1 ， args[3] = 251110101，args[4] = 2350384f-7cf1-438e-ae78-7fbaa6fac787
+12:26:48 步驟 : 1 GUID : 2350384f-7cf1-438e-ae78-7fbaa6fac787 訊息 : 違反 PRIMARY KEY 條件約束 'PK_UDI_ORDER_1'。無法在物件 'ftp.UDI_ORDER' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead)。
+違反 PRIMARY KEY 條件約束 'PK_UDI_PUT_1'。無法在物件 'ftp.UDI_PUT' 中插入重複的索引鍵。重複的索引鍵值是 (1b7ff453-8b5e-434e-96c4-b7a12d113ead, 1)。
+陳述式已經結束。
+陳述式已經結束。
+12:26:48 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : Execute 的取得 Tables 為 0
+21:04:05 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : args[0] = 172.20.8.233 ， args[1] = 1b7ff453-8b5e-434e-96c4-b7a12d113ead ， args[2] = 1 ， args[3] = 251110101，args[4] = 2350384f-7cf1-438e-ae78-7fbaa6fac787
+21:04:07 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 :  PC<->172.20.8.233
+21:04:07 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : 取不到 PUT 的資料
+21:04:24 步驟 : 1 GUID : 2350384f-7cf1-438e-ae78-7fbaa6fac787 訊息 : 找不到預存程序 'dbo.spUDI_STATE11'。
+21:04:24 步驟 : 1 GUID : 1b7ff453-8b5e-434e-96c4-b7a12d113ead 訊息 : 執行結束

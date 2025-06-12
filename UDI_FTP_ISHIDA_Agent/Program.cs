@@ -49,13 +49,13 @@ namespace UDI_FTP_ISHIDA_Agent
             DisableQuickEditMode();
 
             //測試參數
-            string[] test = new string[5];
-            test[0] = "172.20.8.233";
-            test[1] = "101EF554-7075-4BAA-A8CA-6A729514FA89";
-            test[2] = "4";
-            test[3] = "243460101";
-            test[4] = "243280101，args[4] = a0a56f54-7acc-42cb-b47e-2a43f8aac0ea";
-            args = test;
+            //string[] test = new string[5];
+            //test[0] = "172.20.8.233";
+            //test[1] = "55D21235-A8B3-46DF-A56B-55F0C296E2DA";
+            //test[2] = "4";
+            //test[3] = "251100103";
+            //test[4] = "FEFDB4FF-AD98-4BEB-BCA2-F0A4FAE9E42A";
+            //args = test;
 
 
             /**
@@ -96,12 +96,11 @@ namespace UDI_FTP_ISHIDA_Agent
 
             if (args.Length != 5)
             {
-
-                globalUtility.Agent_WriteLog(appGuid + " 參數不正確  :" + paras);
+                globalUtility.LogToFile(appGuid + " 參數不正確  :" + paras);
                 return;
             }
             #endregion
-
+          
             /*** 
             同設備，同Flow，不需要重複執行    
              ***/
@@ -131,14 +130,14 @@ namespace UDI_FTP_ISHIDA_Agent
 
                 if (!m.WaitOne(0, true))
                 {
-                    globalUtility.Agent_WriteLog(appGuid + " 同區域同裝置, 不用重複執行.");
-                    globalUtility.Wirete_Error(appGuid + " 同區域同裝置, 不用重複執行.");
+                    globalUtility.LogToFile(appGuid + " 同區域同裝置, 不用重複執行.");
+                    globalUtility.LogToDatabase(appGuid + " 同區域同裝置, 不用重複執行.");
                     return;
                 }
 
 
                 globalUtility.Parameter_Step = globalUtility.Parameter_OrderType;
-                globalUtility.Agent_WriteLog($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
+                globalUtility.LogToFile($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
 
                 //建立 備份 資料夾
                 #region 建立 備份 資料夾
@@ -158,8 +157,8 @@ namespace UDI_FTP_ISHIDA_Agent
 
                 if (ErrMsg != "")
                 {
-                    globalUtility.Agent_WriteLog(ErrMsg);
-                    globalUtility.Wirete_Error(ErrMsg);
+                    globalUtility.LogToFile(ErrMsg);
+                    globalUtility.LogToDatabase(ErrMsg);
                     return;
                 };
                 #endregion
@@ -198,15 +197,15 @@ namespace UDI_FTP_ISHIDA_Agent
 
                 if (ErrMsg != "")
                 {
-                    globalUtility.Agent_WriteLog(ErrMsg);
-                    globalUtility.Wirete_Error(ErrMsg);
+                    globalUtility.LogToFile(ErrMsg);
+                    globalUtility.LogToDatabase(ErrMsg);
                     return;
                 };
 
                 // 沒有 PutFileName，代表只是執行命令，不產文件
                 if (ftpFileHandel.PutFileName == "")
                 {
-                    globalUtility.Agent_WriteLog("執行命令");
+                    globalUtility.LogToFile("執行命令");
                     ProgramTermination = false;
                     return;
                 }
@@ -269,13 +268,13 @@ namespace UDI_FTP_ISHIDA_Agent
                                 if (file == FileName)
                                 {
                                     Program.ftpclient.delete(FileName);
-                                    globalUtility.Agent_WriteLog(" " + FileName + "刪除完成");
+                                    globalUtility.LogToFile(" " + FileName + "刪除完成");
                                 };
 
                                 if (file == FileNameReturn)
                                 {
                                     Program.ftpclient.delete(FileNameReturn);
-                                    globalUtility.Agent_WriteLog(" " + FileNameReturn + "刪除完成");
+                                    globalUtility.LogToFile(" " + FileNameReturn + "刪除完成");
                                 }
                             }
 
@@ -286,14 +285,14 @@ namespace UDI_FTP_ISHIDA_Agent
                             ErrMsg = globalUtility.FTPCheckFileUploadOK(FileName + ".tmp", ref Program.ftpclient, 0);
                             if (ErrMsg != "")
                             {
-                                globalUtility.Agent_WriteLog(ErrMsg);
-                                globalUtility.Wirete_Error(ErrMsg);
+                                globalUtility.LogToFile(ErrMsg);
+                                globalUtility.LogToDatabase(ErrMsg);
                                 return;
                             }
 
                             // 上傳完畢，將 .tmp 移除
                             Program.ftpclient.rename(FileName + ".tmp", FileName);
-                            globalUtility.Agent_WriteLog($" {FileName} 上傳成功");
+                            globalUtility.LogToFile($" {FileName} 上傳成功");
 
 
                             // 檢查檔案是否已經成功上傳,ISHIDA會回傳【結果】
@@ -301,9 +300,9 @@ namespace UDI_FTP_ISHIDA_Agent
                             ErrMsg = globalUtility.FTPCheckFileUploadOK(FileNameReturn, ref Program.ftpclient, 0);
                             if (ErrMsg != "")
                             {
-
-                                globalUtility.Agent_WriteLog(ErrMsg);
-                                globalUtility.Wirete_Error(ErrMsg);
+                                globalUtility.LineNotice(ErrMsg);
+                                globalUtility.LogToFile(ErrMsg);
+                                globalUtility.LogToDatabase(ErrMsg);
                                 return;
                             }
 
@@ -311,19 +310,18 @@ namespace UDI_FTP_ISHIDA_Agent
                             Thread.Sleep(2000);
 
 
-
                             // 將結果文件下載到本地端
-                            globalUtility.Agent_WriteLog("將結果文件下載到本地端");
+                            globalUtility.LogToFile("將結果文件下載到本地端");
                             Program.ftpclient.download(FileNameReturn, GetFilePath);
                             // 檢查是否下載完成
                             if (File.Exists(GetFilePath))
                             {
-                                globalUtility.Agent_WriteLog(" " + FileNameReturn + " 下載成功");
+                                globalUtility.LogToFile(" " + FileNameReturn + " 下載成功");
                             }
                             else
                             {
                                 ErrMsg = " " + FileNameReturn + " 下載失敗";
-                                globalUtility.Agent_WriteLog(ErrMsg);
+                                globalUtility.LogToFile(ErrMsg);
                                 return;
                             }
 
@@ -338,7 +336,7 @@ namespace UDI_FTP_ISHIDA_Agent
                             }
                             else
                             {
-                                getTxtFromISHIDA.GetTxtToTable(GetFilePath);
+                               await getTxtFromISHIDA.GetTxtToTable(GetFilePath);
                             }
 
                             // 修改狀態
@@ -350,21 +348,21 @@ namespace UDI_FTP_ISHIDA_Agent
                                 if (file == FileName)
                                 {
                                     Program.ftpclient.delete(FileName);
-                                    globalUtility.Agent_WriteLog(" " + FileName + "刪除完成");
+                                    globalUtility.LogToFile(" " + FileName + "刪除完成");
                                 };
 
                                 if (file == FileNameReturn)
                                 {
                                     Program.ftpclient.delete(FileNameReturn);
-                                    globalUtility.Agent_WriteLog(" " + FileNameReturn + "刪除完成");
+                                    globalUtility.LogToFile(" " + FileNameReturn + "刪除完成");
                                 }
                             }
                         }
                         else
                         {
                             ErrMsg = "取不到 PUT 的資料";
-                            globalUtility.Agent_WriteLog(ErrMsg);
-                            globalUtility.Wirete_Error(ErrMsg);
+                            globalUtility.LogToFile(ErrMsg);
+                            globalUtility.LogToDatabase(ErrMsg);
 
                         }
                     }
@@ -374,8 +372,8 @@ namespace UDI_FTP_ISHIDA_Agent
                 catch (Exception ex)
                 {
 
-                    globalUtility.Agent_WriteLog(ex.Message);
-                    globalUtility.Wirete_Error(ex.Message);
+                    globalUtility.LogToFile(ex.Message);
+                    globalUtility.LogToDatabase(ex.Message);
                 }
             }
 
@@ -384,14 +382,14 @@ namespace UDI_FTP_ISHIDA_Agent
             {
                 if (ProgramTermination == true)
                 {
-                    globalUtility.Agent_WriteLog("意外中斷");
-                    globalUtility.Wirete_Error("意外中斷");
+                    globalUtility.LogToFile("意外中斷");
+                    globalUtility.LogToDatabase("意外中斷");
                 }
                 else
                 {
 
-                     globalUtility.UpdateState1();
-                    globalUtility.Agent_WriteLog("執行結束");
+                    globalUtility.UpdateState1();
+                    globalUtility.LogToFile("執行結束");
                 }
 
             }

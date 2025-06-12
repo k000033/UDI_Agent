@@ -11,3 +11,4 @@ D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\refint\Agent_ClassLibrary.dll
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.pdb
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\ref\Agent_ClassLibrary.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\Agent_ClassLibrary\obj\Release\net8.0\Agent_ClassLibrary.sourcelink.json

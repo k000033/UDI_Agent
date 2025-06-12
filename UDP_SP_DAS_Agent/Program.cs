@@ -64,7 +64,7 @@ namespace UDP_SP_DAS_Agent
             if (args.Length != 5)
             {
 
-                global.Agent_WriteLog(appGuid + " 參數不正確  :" + paras);
+                global.LogToFile(appGuid + " 參數不正確  :" + paras);
                 return;
             }
 
@@ -81,7 +81,7 @@ namespace UDP_SP_DAS_Agent
             {
                 if (!m.WaitOne(0, true))
                 {
-                    global.Agent_WriteLog(appGuid + " 同區域同裝置, 不用重複執行.");
+                    global.LogToFile(appGuid + " 同區域同裝置, 不用重複執行.");
                     return;
                 }
 
@@ -98,7 +98,7 @@ namespace UDP_SP_DAS_Agent
                 #endregion
 
                 global.Parameter_Step = global.Parameter_OrderType;
-                global.Agent_WriteLog($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
+                global.LogToFile($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
 
 
                 /***
@@ -116,14 +116,15 @@ namespace UDP_SP_DAS_Agent
                     global.Parameter_Step = global.Parameter_OrderType;
                     // 取得指令名稱
                     string instructions = global.HandleName(global.Parameter_OrderType);
-                    global.Agent_WriteLog(instructions);
+                    global.LogToFile(instructions);
                     // 執行相對應的指令
                     var result = await mainFn.MainFunction(global.Parameter_OrderType);
-                    global.Agent_WriteLog($"回傳訊息 : {result}");
+                    global.LogToFile($"回傳訊息 : {result}");
                 }
                 catch (Exception ex)
                 {
-                    global.Agent_WriteLog($"錯誤訊息 : {ex.Message}");
+                    global.LogToFile($"錯誤訊息 : {ex.Message}");
+                    global.LogToDatabase(ex.Message);
                 }
 
             }

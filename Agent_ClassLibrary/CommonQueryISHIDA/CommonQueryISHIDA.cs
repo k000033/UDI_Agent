@@ -38,7 +38,7 @@ namespace Agent_ClassLibrary.CommonQueryISHIDA
             catch (Exception ex)
             {
 
-                _global.Wirete_Error(ex.Message);
+                _global.LogToDatabase(ex.Message);
             }
             return dataTable;
         }
@@ -60,7 +60,7 @@ namespace Agent_ClassLibrary.CommonQueryISHIDA
             catch (Exception ex)
             {
 
-                _global.Wirete_Error(ex.Message);
+                _global.LogToDatabase(ex.Message);
             }
 
             return result;

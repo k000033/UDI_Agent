@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UDI_FTP_TERAKO_Agent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9beaa82d6d2b5341afcf9e1d9ad5db726117804")]
 [assembly: System.Reflection.AssemblyProductAttribute("UDI_FTP_TERAKO_Agent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UDI_FTP_TERAKO_Agent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

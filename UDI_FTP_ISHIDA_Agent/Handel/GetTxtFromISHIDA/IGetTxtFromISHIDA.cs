@@ -9,6 +9,6 @@ namespace UDI_FTP_ISHIDA_Agent.Handel.GetTxtFromISHIDA
     public interface IGetTxtFromISHIDA
     {
         public string GetMessageTxt(string GetFilePath);
-        public string GetTxtToTable(string GetFilePath);
+        public Task<string> GetTxtToTable(string GetFilePath);
     }
 }

@@ -51,11 +51,11 @@ namespace UDI_FTP_TERAKO_Agent
 
             //測試參數
             //string[] test = new string[5];
-            //test[0] = "172.20.22.100";
-            //test[1] = "2ad4a3e4-979b-4937-9ab4-0c049e28891a";
-            //test[2] = "3";
-            //test[3] = "243180102";
-            //test[4] = "53790003-f14a-44e9-a1df-b542f664ad45";
+            //test[0] = "172.20.8.233";
+            //test[1] = "1b7ff453-8b5e-434e-96c4-b7a12d113ead";
+            //test[2] = "1";
+            //test[3] = "251110101";
+            //test[4] = "2350384f-7cf1-438e-ae78-7fbaa6fac787";
             //args = test;
 
             /*** 
@@ -98,7 +98,7 @@ namespace UDI_FTP_TERAKO_Agent
             if (args.Length != 5)
             {
 
-                globalUtility.Agent_WriteLog(appGuid + " 參數不正確  :" + paras);
+                globalUtility.LogToFile(appGuid + " 參數不正確  :" + paras);
                 return;
             }
             #endregion
@@ -132,13 +132,13 @@ namespace UDI_FTP_TERAKO_Agent
 
                 if (!m.WaitOne(0, true))
                 {
-                    globalUtility.Agent_WriteLog(appGuid + " 同區域同裝置, 不用重複執行.");
-                    globalUtility.Wirete_Error(appGuid + " 同區域同裝置, 不用重複執行.");
+                    globalUtility.LogToFile(appGuid + " 同區域同裝置, 不用重複執行.");
+                    globalUtility.LogToDatabase(appGuid + " 同區域同裝置, 不用重複執行.");
                     return;
                 }
 
                 globalUtility.Parameter_Step = globalUtility.Parameter_OrderType;
-                globalUtility.Agent_WriteLog($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
+                globalUtility.LogToFile($"args[0] = {args[0]} ， args[1] = {args[1]} ， args[2] = {args[2]} ， args[3] = {args[3]}，args[4] = {args[4]}");
 
                 /***
                   建立 備份 資料夾
@@ -160,8 +160,8 @@ namespace UDI_FTP_TERAKO_Agent
 
                 if (ErrMsg != "")
                 {
-                    globalUtility.Agent_WriteLog(ErrMsg);
-                    globalUtility.Wirete_Error(ErrMsg);
+                    globalUtility.LogToFile(ErrMsg);
+                    globalUtility.LogToDatabase(ErrMsg);
                     return;
                 };
                 #endregion
@@ -181,10 +181,6 @@ namespace UDI_FTP_TERAKO_Agent
                 #endregion
 
 
-                #region 清除過去的Log
-                await globalUtility.Agent_LocalClean();
-                #endregion
-
                 /***
                    ftp 連線
                 ***/
@@ -200,15 +196,15 @@ namespace UDI_FTP_TERAKO_Agent
 
                 if (ErrMsg != "")
                 {
-                    globalUtility.Agent_WriteLog(ErrMsg);
-                    globalUtility.Wirete_Error(ErrMsg);
+                    globalUtility.LogToFile(ErrMsg);
+                    globalUtility.LogToDatabase(ErrMsg);
                     return;
                 };
 
                 // 沒有 PutFileName，代表只是執行命令，不產文件
                 if (ftpFileHandel.PutFileName == "")
                 {
-                    globalUtility.Agent_WriteLog("執行命令");
+                    globalUtility.LogToFile("執行命令");
                     ProgramTermination = false;
                     return;
                 }
@@ -263,12 +259,12 @@ namespace UDI_FTP_TERAKO_Agent
                             // 清除 遠端FTP 文件
                             #region 清除ftp舊資料
                             var files = ftpclient.directoryListSimple("");
-                            foreach(var file in files)
+                            foreach (var file in files)
                             {
-                                if(file == FileName)
+                                if (file == FileName)
                                 {
                                     Program.ftpclient.delete(FileName);
-                                    globalUtility.Agent_WriteLog(" " + FileName + "刪除完成");
+                                    globalUtility.LogToFile(" " + FileName + "刪除完成");
                                 }
                             }
                             #endregion
@@ -280,14 +276,14 @@ namespace UDI_FTP_TERAKO_Agent
                             ErrMsg = globalUtility.FTPCheckFileUploadOK(FileName + ".tmp", ref Program.ftpclient, 0);
                             if (ErrMsg != "")
                             {
-                                globalUtility.Agent_WriteLog(ErrMsg);
-                                globalUtility.Wirete_Error(ErrMsg);
+                                globalUtility.LogToFile(ErrMsg);
+                                globalUtility.LogToDatabase(ErrMsg);
                                 return;
                             }
 
                             // 上傳文件成功後，將 .tmp 移除
                             Program.ftpclient.rename(FileName + ".tmp", FileName);
-                            globalUtility.Agent_WriteLog(" " + FileName + "下傳成功");
+                            globalUtility.LogToFile(" " + FileName + "下傳成功");
 
 
                             // PostGet 非空字串，代表要回寫到 GET TABLE
@@ -299,41 +295,21 @@ namespace UDI_FTP_TERAKO_Agent
                                 if (ErrMsg != "")
                                 {
 
-                                    globalUtility.Agent_WriteLog(ErrMsg);
-                                    globalUtility.Wirete_Error(ErrMsg);
+                                    globalUtility.LogToFile(ErrMsg);
+                                    globalUtility.LogToDatabase(ErrMsg);
                                     return;
                                 }
                             }
                             else
                             {
 
-                                //FileName = "HST0201.TXT";
-                                //PutFilePath = Program.FileDirectory + @"\" + FileName;
-                                //using (StreamWriter sw_OutPutHST0201 = new StreamWriter(PutFilePath, false, System.Text.Encoding.Default))
-                                //{
-                                //    sw_OutPutHST0201.Write("");
-                                //}
-                                //Program.ftpclient.upload(FileName + ".tmp", PutFilePath);
-
-
-                                // 檢查是否有成功上傳文件到遠端 FTP
-                                //ErrMsg = globalUtility.FTPCheckFileUploadOK(FileName + ".tmp", ref Program.ftpclient, 0);
-                                //if (ErrMsg != "")
-                                //{
-                                //    globalUtility.Agent_WriteLog(ErrMsg);
-                                //    globalUtility.Wirete_Error(ErrMsg);
-                                //    return;
-                                //}
-                                //Program.ftpclient.rename(FileName + ".tmp", FileName);
-
-
 
                                 // 先確認文件有沒有產出
                                 ErrMsg = globalUtility.FTPCheckFileUploadOK(FileNameReturn, ref Program.ftpclient, 0);
                                 if (ErrMsg != "")
                                 {
-                                    globalUtility.Agent_WriteLog(ErrMsg);
-                                    globalUtility.Wirete_Error(ErrMsg);
+                                    globalUtility.LogToFile(ErrMsg);
+                                    globalUtility.LogToDatabase(ErrMsg);
                                     return;
                                 }
 
@@ -343,24 +319,24 @@ namespace UDI_FTP_TERAKO_Agent
                                 // 檢查是否有成功下載到本地端
                                 if (File.Exists(GetFilePath))
                                 {
-                                    globalUtility.Agent_WriteLog($" {FileNameReturn} 下載成功");
+                                    globalUtility.LogToFile($" {FileNameReturn} 下載成功");
                                 }
                                 else
                                 {
                                     ErrMsg = $" {FileNameReturn} 下載失敗";
-                                    globalUtility.Agent_WriteLog(ErrMsg);
-                                    globalUtility.Wirete_Error(ErrMsg);
+                                    globalUtility.LogToFile(ErrMsg);
+                                    globalUtility.LogToDatabase(ErrMsg);
                                     return;
                                 }
                                 // 搬到備分
                                 File.Copy(GetFilePath, FilePath_ReturnBackup);
 
                                 // 寫入 Table
-                                getTxtFromTERAKO.GetTxtToTable(FilePath_ReturnBackup);
+                                await getTxtFromTERAKO.GetTxtToTable(FilePath_ReturnBackup);
 
                                 Program.ftpclient.delete(FileNameReturn);
 
-                                globalUtility.Agent_WriteLog(" " + FileNameReturn + "刪除完成");
+                                globalUtility.LogToFile(" " + FileNameReturn + "刪除完成");
                             }
 
                             // 改變狀態
@@ -370,8 +346,8 @@ namespace UDI_FTP_TERAKO_Agent
                         else
                         {
                             ErrMsg = "取不到 PUT 的資料";
-                            globalUtility.Agent_WriteLog(ErrMsg);
-                            globalUtility.Wirete_Error(ErrMsg);
+                            globalUtility.LogToFile(ErrMsg);
+                            globalUtility.LogToDatabase(ErrMsg);
                         }
                     }
 
@@ -380,8 +356,8 @@ namespace UDI_FTP_TERAKO_Agent
                 catch (Exception ex)
                 {
 
-                    globalUtility.Agent_WriteLog(ex.Message);
-                    globalUtility.Wirete_Error(ex.Message);
+                    globalUtility.LogToFile(ex.Message);
+                    globalUtility.LogToDatabase(ex.Message);
                 }
             }
 
@@ -390,18 +366,16 @@ namespace UDI_FTP_TERAKO_Agent
             {
                 if (ProgramTermination == true)
                 {
-                    globalUtility.Agent_WriteLog("異常中斷");
-                    globalUtility.Wirete_Error("異常中斷");
+                    globalUtility.LogToFile("異常中斷");
+                    globalUtility.LogToDatabase("異常中斷");
                 }
                 else
                 {
                     globalUtility.UpdateState1();
-                    globalUtility.Agent_WriteLog("執行結束");
+                    globalUtility.LogToFile("執行結束");
                 }
 
             }
-
-            Environment.Exit(0); // 确保程序完全退出
         }
 
         //由於因為滑鼠點擊會變成選取中狀態而中止，固增加這段

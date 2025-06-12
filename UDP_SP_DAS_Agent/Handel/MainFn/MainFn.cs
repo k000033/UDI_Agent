@@ -39,7 +39,7 @@ namespace UDI_SP_DAS_Agent.Handel.MainFn
                 else
                 {
                     ErrMsg = row["RTN_MESSAGE"].ToString();
-                    _global.Wirete_Error(ErrMsg);
+                    _global.LogToDatabase(ErrMsg);
                 }
             };
             return ErrMsg;

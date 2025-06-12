@@ -83,3 +83,4 @@ D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_ISHIDA_Agent\obj\Releas
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_ISHIDA_Agent\obj\Release\net8.0\UDI_FTP_ISHIDA_Agent.pdb
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_ISHIDA_Agent\obj\Release\net8.0\UDI_FTP_ISHIDA_Agent.genruntimeconfig.cache
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_ISHIDA_Agent\obj\Release\net8.0\ref\UDI_FTP_ISHIDA_Agent.dll
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_ISHIDA_Agent\obj\Release\net8.0\UDI_FTP_ISHIDA_Agent.sourcelink.json

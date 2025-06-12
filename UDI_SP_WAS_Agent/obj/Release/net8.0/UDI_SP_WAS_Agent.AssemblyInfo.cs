@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UDI_SP_WAS_Agent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14bd476b7980055de86f1e0521721c401c7082e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("UDI_SP_WAS_Agent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UDI_SP_WAS_Agent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

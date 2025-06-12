@@ -30,7 +30,7 @@ namespace Agent_ClassLibrary.AppExceptionHandle
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception err = e.ExceptionObject as Exception;
-            _global.Agent_WriteLog(err.Message);
+            _global.LogToFile(err.Message);
         }
 
         // 關閉視窗，會觸發的事件

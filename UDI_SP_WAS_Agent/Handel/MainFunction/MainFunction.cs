@@ -41,7 +41,7 @@ namespace UDI_SP_WAS_Agent.Handel.MainFunction
                 else
                 {
                     ErrMsg = row["RTN_MESSAGE"].ToString();
-                    _global.Wirete_Error(ErrMsg);
+                    _global.LogToDatabase(ErrMsg);
                 }
             };
             return ErrMsg;

@@ -3,6 +3,7 @@ using Agent_ClassLibrary.Gloab;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,7 +65,7 @@ namespace UDI_FTP_ISHIDA_Agent.Handel.GetTxtFromISHIDA
                             }
                             continue;
                         }
-                        _global.Agent_WriteLog(" 成功更新筆數" + items[4]);
+                        _global.LogToFile(" 成功更新筆數" + items[4]);
                     }
                 }
             }
@@ -79,7 +80,7 @@ namespace UDI_FTP_ISHIDA_Agent.Handel.GetTxtFromISHIDA
         }
 
 
-        public string GetTxtToTable(string GetFilePath)
+        public async Task<string> GetTxtToTable(string GetFilePath)
         {
 
             string GetFileName = _ftpFileHndel.GetFileName;
@@ -100,20 +101,37 @@ namespace UDI_FTP_ISHIDA_Agent.Handel.GetTxtFromISHIDA
                 // 去除陣列元素是空字串
                 rows = rows.Except(new string[] { "" }).ToArray();
 
-                // 從第二行開始取得資料
+
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("GUID", typeof(Guid));
+                dataTable.Columns.Add("IDX", typeof(int));
+                dataTable.Columns.Add("TXT", typeof(string));
+                dataTable.Columns.Add("CRT_TIME", typeof(DateTime));
+
+
                 for (int row_Number = 1; row_Number < rows.Length; row_Number++)
                 {
-                    Hashtable ht_Query2 = new Hashtable();
-                    ht_Query2.Add("@GUID", _global.Parameter_GUID);
-                    ht_Query2.Add("@IDX", intItems);
-                    ht_Query2.Add("@TXT", rows[row_Number]);
-                    _global.TxtInsertTable(ht_Query2, ref intItems);
-                    _global.Agent_WriteLog($"寫入第 {row_Number} 筆資料");
+                    dataTable.Rows.Add(_global.Parameter_GUID, row_Number, rows[row_Number], DateTime.Now);
+                    intItems= row_Number;
                 }
 
-                _global.Agent_WriteLog($" {GetFileName} {intItems}筆  上傳DB成功 ");
-                _global.Agent_WriteLog($" {spName} ");
-                _ftpFileHndel.WhriteToResult(spName);
+
+                await _global.InsertUdiGetWithSqlBulkCopy(dataTable);
+
+                //// 從第二行開始取得資料
+                //for (int row_Number = 1; row_Number < rows.Length; row_Number++)
+                //{
+                //    Hashtable ht_Query2 = new Hashtable();
+                //    ht_Query2.Add("@GUID", _global.Parameter_GUID);
+                //    ht_Query2.Add("@IDX", intItems);
+                //    ht_Query2.Add("@TXT", rows[row_Number]);
+                //    _global.TxtInsertTable(ht_Query2, ref intItems);
+                //    _global.LogToFile($"寫入第 {row_Number} 筆資料");
+                //}
+
+                _global.LogToFile($" {GetFileName} {intItems}筆  上傳DB成功 ");
+                _global.LogToFile($" {spName} ");
+                _ftpFileHndel.WriteToResult(spName);
             }
             catch (Exception ex)
             {

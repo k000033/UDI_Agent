@@ -23,7 +23,7 @@ namespace Agent_ClassLibrary.FtpFileHandle
         public DataSet GetFtpOrder(Hashtable prm);
         public Task<DataSet> GetFtpPutTxt(Hashtable prm);
 
-        public DataSet WhriteToResult(string SpName);
+        public DataSet WriteToResult(string SpName);
 
 
         public Task<string> ExecuteAction();

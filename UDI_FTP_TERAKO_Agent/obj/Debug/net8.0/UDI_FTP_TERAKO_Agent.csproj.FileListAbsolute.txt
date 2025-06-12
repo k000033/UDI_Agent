@@ -84,3 +84,4 @@ D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\bin\Debug\
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\bin\Debug\net8.0\Agent_ClassLibrary.pdb
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\bin\Debug\net8.0\Agent_ClassLibrary.dll.config
 D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Debug\net8.0\UDI_FTP_TERAKO_Agent.csproj.CopyComplete
+D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\obj\Debug\net8.0\UDI_FTP_TERAKO_Agent.sourcelink.json

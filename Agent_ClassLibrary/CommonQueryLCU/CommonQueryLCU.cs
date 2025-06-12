@@ -247,7 +247,7 @@ namespace Agent_ClassLibrary.CommonQueryLCU
             catch (Exception ex)
             {
 
-                _global.Wirete_Error(ex.Message);
+                _global.LogToDatabase(ex.Message);
             }
             return dataTable;
         }

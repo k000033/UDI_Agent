@@ -8,6 +8,6 @@ namespace UDI_FTP_TERAKO_Agent.Handel.GetTxtFromTERKO
 {
     public interface IGetTxtFromTERAKO
     {
-        public string GetTxtToTable(string GetFilePath);
+        public Task<string> GetTxtToTable(string GetFilePath);
     }
 }

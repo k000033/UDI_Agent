@@ -2,5 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_LastSelectedProfileId>D:\Users\Jones_Zhong\Desktop\Asp專案\UDI_Agent\UDI_FTP_TERAKO_Agent\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
+    <ActiveDebugProfile>設定檔 2</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

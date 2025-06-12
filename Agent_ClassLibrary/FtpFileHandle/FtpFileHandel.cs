@@ -57,7 +57,7 @@ namespace Agent_ClassLibrary.FtpFileHandle
             return dataset;
         }
 
-        public DataSet WhriteToResult(string SpName)
+        public DataSet WriteToResult(string SpName)
         {
             string strSp = $@"{SpName}";
             Hashtable ht_Query = new Hashtable();
@@ -73,15 +73,26 @@ namespace Agent_ClassLibrary.FtpFileHandle
             try
             {
                 DataSet dataSet = await _global.Execute();
-                DataTable dataTable = dataSet.Tables[0];
-                if (dataTable.Rows.Count > 0)
+                if (dataSet.Tables.Count > 0)
                 {
-                    DataRow row = dataTable.Rows[0];
-                    int code = (int)row["RTN_CODE"];
-                    if (code != 0)
+                    DataTable dataTable = dataSet.Tables[0];
+                    if (dataTable.Rows.Count > 0)
                     {
-                        ErrMsg = row["RTN_MESSAGE"].ToString();
+                        DataRow row = dataTable.Rows[0];
+                        int code = (int)row["RTN_CODE"];
+                        if (code != 0)
+                        {
+                            ErrMsg = row["RTN_MESSAGE"].ToString();
+                        }
                     }
+                    else
+                    {
+                        ErrMsg = "Execute 的取得 Table 的 Rows 為 0";
+                    }
+                }
+                else
+                {
+                    ErrMsg = "Execute 的取得 Tables 為 0";
                 }
             }
             catch (Exception ex)

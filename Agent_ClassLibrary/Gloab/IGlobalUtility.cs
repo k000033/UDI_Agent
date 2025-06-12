@@ -28,9 +28,9 @@ namespace Agent_ClassLibrary.Gloab
         public void FTP_Connectoin(ref FtpClient ftpClient);
 
         public string FTPCheckFileUploadOK(string FileName, ref FtpClient ftp, int ExistType);
-        public void Agent_WriteLog(string msg);
+        public void LogToFile(string msg);
 
-        public void Wirete_Error(string msg);
+        public void LogToDatabase(string msg);
 
         public Task<DataSet> Execute();
 
@@ -45,5 +45,9 @@ namespace Agent_ClassLibrary.Gloab
         public string HandleName(string type);
 
         public bool TxtInsertTable(Hashtable prm, ref int intItems);
+        public Task<bool> InsertUdiGetWithSqlBulkCopy(DataTable dataTable);
+
+        public void LineNotice(string msg);
+
     }
 }
