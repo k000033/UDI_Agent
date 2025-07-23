@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Agent_ClassLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9beaa82d6d2b5341afcf9e1d9ad5db726117804")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad68b021ca102b3afde967e7a4311bb79eb9f184")]
 [assembly: System.Reflection.AssemblyProductAttribute("Agent_ClassLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Agent_ClassLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

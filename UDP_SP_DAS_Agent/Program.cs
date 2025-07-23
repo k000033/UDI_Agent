@@ -74,7 +74,7 @@ namespace UDP_SP_DAS_Agent
             //Agent_LCU專屬Mutex
             appGuidExe = Process.GetCurrentProcess().ProcessName + ".exe";
             //建立專屬ID，因同裝置, 不需要重複執行
-            appGuid = appGuidExe + "^" + args[1] + "^" + args[2] + "^" + args[3];
+            appGuid = appGuidExe + "^" + "DAS02";
 
 
             using (Mutex m = new Mutex(false, "Global\\" + appGuid))
